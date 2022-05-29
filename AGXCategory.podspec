@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AGXCategory'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = '所用一些分类'
 
 # This description is used to generate tags and improve search results.
@@ -30,9 +30,11 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'AGXCategory/Classes/**/*'
-  s.public_header_files = 'AGXCategory/Classes/*.h'
+  s.source_files = 'AGXCategory/Classes/AGCategory.h'
+  s.public_header_files = 'AGXCategory/Classes/AGCategory.h'
   
+  s.default_subspecs = 'NSString', 'NSDate'
+  s.frameworks = 'UIKit'
 
   s.subspec 'NSString' do |ss|
       ss.source_files = 'AGXCategory/Classes/NSString/*.{h,m}'
