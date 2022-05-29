@@ -1,0 +1,16 @@
+PODS:
+  - AGXCategory (0.1.0)
+
+DEPENDENCIES:
+  - AGXCategory (from `../`)
+
+EXTERNAL SOURCES:
+  AGXCategory:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AGXCategory: 3925f34bc7f5f68071dfbc7aaa8d64697a2e96f9
+
+PODFILE CHECKSUM: e1b2a813d9bfe78f937229413e4a89d7161ef58b
+
+COCOAPODS: 1.11.3

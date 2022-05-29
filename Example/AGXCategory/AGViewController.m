@@ -7,6 +7,7 @@
 //
 
 #import "AGViewController.h"
+#import "AGCategory.h"
 
 @interface AGViewController ()
 
@@ -18,6 +19,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    NSString *tiemstr = [NSDate agdateToString:[NSDate date] dateFormatter:@"yyyy-MM-dd"];
+    
+    NSLog(@"time = %@",tiemstr);
 }
 
 - (void)didReceiveMemoryWarning

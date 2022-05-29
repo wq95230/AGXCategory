@@ -22,7 +22,7 @@ pod 'AGXCategory'
 
 ## Author
 
-952303557@qq.com, 952303557@qq.com
+liujf, 952303557@qq.com
 
 ## License
 
