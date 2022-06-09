@@ -13,6 +13,9 @@
 #import "AGCategory.h"
 #import "NSDate+Tool.h"
 #import "NSString+Predicate.h"
+#import "UIButton+AG.h"
+#import "UITextView+AGPlaceholder.h"
+#import "UIView+AG.h"
 
 FOUNDATION_EXPORT double AGXCategoryVersionNumber;
 FOUNDATION_EXPORT const unsigned char AGXCategoryVersionString[];

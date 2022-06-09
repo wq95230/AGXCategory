@@ -10,6 +10,9 @@
 
 #import "NSDate+Tool.h"
 #import "NSString+Predicate.h"
+#import "UIButton+AG.h"
+#import "UITextView+AGPlaceholder.h"
+#import "UIView+AG.h"
 
 
 #endif /* AGCategories_h */

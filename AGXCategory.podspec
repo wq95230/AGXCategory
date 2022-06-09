@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AGXCategory'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = '所用一些分类'
 
 # This description is used to generate tags and improve search results.
@@ -33,15 +33,32 @@ TODO: Add long description of the pod here.
   s.source_files = 'AGXCategory/Classes/AGCategory.h'
   s.public_header_files = 'AGXCategory/Classes/AGCategory.h'
   
-  s.default_subspecs = 'NSString', 'NSDate'
+  s.default_subspecs = 'NSString', 'NSDate', 'UIButtom','UIView','UITextView'
   s.frameworks = 'UIKit'
 
+  #字符串分类
   s.subspec 'NSString' do |ss|
       ss.source_files = 'AGXCategory/Classes/NSString/*.{h,m}'
   end
   
+  #日期分类
   s.subspec 'NSDate' do |ss|
       ss.source_files = 'AGXCategory/Classes/NSDate/*.{h,m}'
+  end
+  
+  #按钮分类
+  s.subspec 'UIButtom' do |ss|
+      ss.source_files = 'AGXCategory/Classes/UIButtom/*.{h,m}'
+  end
+  
+  #视图分类
+  s.subspec 'UIView' do |ss|
+      ss.source_files = 'AGXCategory/Classes/UIView/*.{h,m}'
+  end
+  
+  #视图分类
+  s.subspec 'UITextView' do |ss|
+      ss.source_files = 'AGXCategory/Classes/UITextView/*.{h,m}'
   end
   
   # s.resource_bundles = {
