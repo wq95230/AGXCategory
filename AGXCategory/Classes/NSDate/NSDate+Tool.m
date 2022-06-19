@@ -21,10 +21,9 @@
 + (NSDateComponents *)components:(NSDate *)date
 {
     NSDateFormatter *dateFormatter = [[self class] setDateFormatter:@"yyyy-MM-dd"];
-    NSString *dateString = [NSDate agtimeIntervalToString:date.timeIntervalSince1970 dateFormatter:dateFormatter.dateFormat];
+    NSString *dateString = [NSDate ag_timeIntervalToString:date.timeIntervalSince1970 dateFormatter:dateFormatter.dateFormat];
     NSDate *startDate = [dateFormatter dateFromString:dateString];
     NSDateComponents *components = [[NSCalendar currentCalendar] components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | kCFCalendarUnitWeekday | kCFCalendarUnitWeekdayOrdinal) fromDate:startDate];
-    
     return components;
 }
 
@@ -32,7 +31,7 @@
 /// NSDate转格式显示
 /// @param date 例如：[NSDate date]
 /// @param formatter @"yyyy-MM-dd"
-+ (NSString *)agdateToString:(NSDate *)date dateFormatter:(NSString *)formatter
++ (NSString *)ag_dateToString:(NSDate *)date dateFormatter:(NSString *)formatter
 {
     NSDateFormatter *dateFormatter = [[self class] setDateFormatter:formatter];
     NSString *dateString = [dateFormatter stringFromDate:date];
@@ -42,7 +41,7 @@
 /// 时间戳转格式显示
 /// @param timeInterval 10位的时间戳
 /// @param formatter @"yyyy-MM-dd"
-+ (NSString *)agtimeIntervalToString:(NSTimeInterval)timeInterval dateFormatter:(NSString *)formatter {
++ (NSString *)ag_timeIntervalToString:(NSTimeInterval)timeInterval dateFormatter:(NSString *)formatter {
     NSDateFormatter *dateFormatter = [[self class] setDateFormatter:formatter];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval];
     NSString *dateString = [dateFormatter stringFromDate:date];
@@ -50,13 +49,13 @@
 }
 #pragma mark - 返回NSDate部分
 
-+ (NSDate *)agdateWithDateString:(NSString *)dateString formatString:(NSString *)format {
++ (NSDate *)ag_dateWithDateString:(NSString *)dateString formatString:(NSString *)format {
     NSDateFormatter *dateFormatter = [[self class] setDateFormatter:format];
     NSDate *date = [dateFormatter dateFromString:dateString];
     return date;
 }
 
-+ (NSDate *)agdateWithPresentDate:(NSDate*)presentDate year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day{
++ (NSDate *)ag_dateWithPresentDate:(NSDate*)presentDate year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day{
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
 
     NSDateComponents *adcomps = [[NSDateComponents alloc] init];
@@ -68,7 +67,7 @@
     return [calendar dateByAddingComponents:adcomps toDate:presentDate options:0];
 }
 
-+ (NSDate *)agdateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day{
++ (NSDate *)ag_dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day{
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
     NSDateComponents *adcomps = [[NSDateComponents alloc] init];
@@ -83,7 +82,7 @@
 }
 #pragma mark - 返回整型部分
 
-+ (NSInteger)agdaysBetweenStartDate:(NSDate *)startDate endDate:(NSDate *)endDate {
++ (NSInteger)ag_daysBetweenStartDate:(NSDate *)startDate endDate:(NSDate *)endDate {
     NSDateComponents *startComponents = [NSDate components:startDate];
     NSDateComponents *endComponents = [NSDate components:endDate];
     
@@ -92,23 +91,21 @@
 }
 
 // 获取当前月共有多少天
-+ (NSInteger)agtotaldaysInMonth:(NSDate *)date {
++ (NSInteger)ag_totaldaysInMonth:(NSDate *)date {
     NSRange daysInLastMonth = [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:date];
     
     return daysInLastMonth.length;
 }
 
 // 日期判断
-+ (BOOL)agisCurrentDay:(NSDate *)date {
++ (BOOL)ag_isCurrentDay:(NSDate *)date {
     BOOL result = NO;
     
-    NSString *dateString = [NSDate agdateToString:date dateFormatter:@"yyyy-MM-dd"];
-    NSString *nowString = [NSDate agdateToString:[NSDate date] dateFormatter:@"yyyy-MM-dd"];
-    
+    NSString *dateString = [NSDate ag_dateToString:date dateFormatter:@"yyyy-MM-dd"];
+    NSString *nowString = [NSDate ag_dateToString:[NSDate date] dateFormatter:@"yyyy-MM-dd"];
     if ([dateString isEqualToString:nowString]) {
         result = YES;
     }
-    
     return result;
 }
 

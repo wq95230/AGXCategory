@@ -12,35 +12,35 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSString (Predicate)
 
 //有效的电话号码
-- (BOOL) agisValidMobileNumber;
+- (BOOL) ag_isValidMobileNumber;
 
 //有效的真实姓名
-- (BOOL) agisValidRealName;
+- (BOOL) ag_isValidRealName;
 
 //是否只有中文
-- (BOOL) agisOnlyChinese;
+- (BOOL) ag_isOnlyChinese;
 
 //有效的验证码(根据自家的验证码位数进行修改)
-- (BOOL) agisValidVerifyCode;
+- (BOOL) ag_isValidVerifyCode;
 
 //有效的银行卡号
-- (BOOL) agisValidBankCardNumber;
+- (BOOL) ag_isValidBankCardNumber;
 
 //有效的邮箱
-- (BOOL) agisValidEmail;
+- (BOOL) ag_isValidEmail;
 
 //有效的字母数字密码
-- (BOOL) agisValidAlphaNumberPassword;
+- (BOOL) ag_isValidAlphaNumberPassword;
 
 //检测有效身份证
 //15位
-- (BOOL) agisValidIdentifyFifteen;
+- (BOOL) ag_isValidIdentifyFifteen;
 
 //18位
-- (BOOL) agisValidIdentifyEighteen;
+- (BOOL) ag_isValidIdentifyEighteen;
 
 //限制只能输入数字
-- (BOOL) agisOnlyNumber;
+- (BOOL) ag_isOnlyNumber;
 
 @end
 

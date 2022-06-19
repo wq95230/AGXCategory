@@ -6,6 +6,10 @@
 //  Copyright © 2022 952303557@qq.com. All rights reserved.
 // 来源 https://github.com/devxoul/UITextView-Placeholder 避免文件名重复 新建了个类
 
+/*
+ 添加ag_开头 好像被改废了  不能用就用上面的吧
+ */
+
 #if __has_feature(modules)
 @import UIKit;
 #else

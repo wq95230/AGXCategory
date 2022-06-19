@@ -1,15 +1,15 @@
 PODS:
-  - AGXCategory (0.1.1):
-    - AGXCategory/NSDate (= 0.1.1)
-    - AGXCategory/NSString (= 0.1.1)
-    - AGXCategory/UIButtom (= 0.1.1)
-    - AGXCategory/UITextView (= 0.1.1)
-    - AGXCategory/UIView (= 0.1.1)
-  - AGXCategory/NSDate (0.1.1)
-  - AGXCategory/NSString (0.1.1)
-  - AGXCategory/UIButtom (0.1.1)
-  - AGXCategory/UITextView (0.1.1)
-  - AGXCategory/UIView (0.1.1)
+  - AGXCategory (0.1.2):
+    - AGXCategory/NSDate (= 0.1.2)
+    - AGXCategory/NSString (= 0.1.2)
+    - AGXCategory/UIButtom (= 0.1.2)
+    - AGXCategory/UITextView (= 0.1.2)
+    - AGXCategory/UIView (= 0.1.2)
+  - AGXCategory/NSDate (0.1.2)
+  - AGXCategory/NSString (0.1.2)
+  - AGXCategory/UIButtom (0.1.2)
+  - AGXCategory/UITextView (0.1.2)
+  - AGXCategory/UIView (0.1.2)
 
 DEPENDENCIES:
   - AGXCategory (from `../`)
@@ -19,7 +19,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AGXCategory: 0070e6e2b1658c4ad7e92bb29f3509bb224082be
+  AGXCategory: 23815f59612edb3e65d7926d931827d25544c81d
 
 PODFILE CHECKSUM: e1b2a813d9bfe78f937229413e4a89d7161ef58b
 
