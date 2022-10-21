@@ -177,6 +177,68 @@
     }
 }
 
+/// 圆角加阴影
+/// @param shadowColor 阴影颜色
+/// @param shadowOpacity 阴影透明度，默认0
+/// @param shadowRadius 阴影半径，默认3
+/// @param shadowPathSide 设置哪一侧的阴影
+/// @param shadowPathWidth  阴影的宽度
+/// @param rectCorner 圆角位置
+-(void)ag_shadowPathWith:(UIColor *)shadowColor
+           shadowOpacity:(CGFloat)shadowOpacity
+            shadowRadius:(CGFloat)shadowRadius
+              shadowSide:(AGShadowPathSide)shadowPathSide
+         shadowPathWidth:(CGFloat)shadowPathWidth
+          radiusLocation:(UIRectCorner)rectCorner
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        if (@available(iOS 11.0,*)) {
+            self.layer.cornerRadius = shadowRadius;
+            self.layer.maskedCorners = (CACornerMask)rectCorner;
+        }else{
+            UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:rectCorner cornerRadii:CGSizeMake(shadowRadius, shadowRadius)];
+            CAShapeLayer *maskLayer = [[CAShapeLayer alloc]init];
+            self.frame = self.bounds;
+            maskLayer.path = path.CGPath;
+            self.layer.mask = maskLayer;
+        }
+        self.layer.masksToBounds = NO;
+        self.clipsToBounds = NO;
+        self.layer.shadowColor = shadowColor.CGColor;
+        self.layer.shadowOpacity = shadowOpacity;
+        //设置抗锯齿边缘
+        self.layer.rasterizationScale = [UIScreen mainScreen].scale;
+        self.layer.shadowOffset = CGSizeZero;
+        CGRect shadowRect;
+        CGFloat originX = 0;
+        CGFloat originY = 0;
+        CGFloat originW = self.bounds.size.width;
+        CGFloat originH = self.bounds.size.height;
+        switch (shadowPathSide) {
+            case AGShadowPathTop:
+                shadowRect  = CGRectMake(originX, originY - shadowPathWidth/2, originW,  shadowPathWidth);
+                break;
+            case AGShadowPathBottom:
+                shadowRect  = CGRectMake(originX, originH -shadowPathWidth/2, originW, shadowPathWidth);
+                break;
+            case AGShadowPathLeft:
+                shadowRect  = CGRectMake(originX - shadowPathWidth/2, originY, shadowPathWidth, originH);
+                break;
+            case AGShadowPathRight:
+                shadowRect  = CGRectMake(originW - shadowPathWidth/2, originY, shadowPathWidth, originH);
+                break;
+            case AGShadowPathNoTop:
+                shadowRect  = CGRectMake(originX -shadowPathWidth/2, originY +1, originW +shadowPathWidth,originH + shadowPathWidth/2 );
+                break;
+            case AGShadowPathAllSide:
+                shadowRect  = CGRectMake(originX - shadowPathWidth/2, originY - shadowPathWidth/2, originW +  shadowPathWidth, originH + shadowPathWidth);
+                break;
+        }
+        UIBezierPath *path =[UIBezierPath bezierPathWithRect:shadowRect];
+        self.layer.shadowPath = path.CGPath;
+    });
+}
 
 + (instancetype)ag_viewWithFrame:(CGRect)frame backgroundColor:(nullable UIColor *)backgroundColor
 {

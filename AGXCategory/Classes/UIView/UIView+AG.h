@@ -9,6 +9,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef enum : NSInteger{
+    AGShadowPathLeft,
+    AGShadowPathRight,
+    AGShadowPathTop,
+    AGShadowPathBottom,
+    AGShadowPathNoTop,
+    AGShadowPathAllSide
+} AGShadowPathSide;
+
 @interface UIView (AG)
 
 /**  起点x坐标  */
@@ -46,6 +55,20 @@ NS_ASSUME_NONNULL_BEGIN
 /// 设置圆角
 /// @param radius 圆角尺寸
 - (void)ag_radiusAllCornerWithRadius:(CGFloat)radius;
+
+/// 圆角加阴影
+/// @param shadowColor 阴影颜色
+/// @param shadowOpacity 阴影透明度，默认0
+/// @param shadowRadius 阴影半径，默认3
+/// @param shadowPathSide 设置哪一侧的阴影
+/// @param shadowPathWidth  阴影的宽度
+/// @param rectCorner 圆角位置 UIRectCornerAllCorners
+-(void)ag_shadowPathWith:(UIColor *)shadowColor
+           shadowOpacity:(CGFloat)shadowOpacity
+            shadowRadius:(CGFloat)shadowRadius
+              shadowSide:(AGShadowPathSide)shadowPathSide
+         shadowPathWidth:(CGFloat)shadowPathWidth
+          radiusLocation:(UIRectCorner)rectCorner;
 
 /// 初始化View
 /// @param frame frame description
